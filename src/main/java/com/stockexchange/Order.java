@@ -20,7 +20,7 @@ public class Order {
     Order(String order_id, String time, String buy, double price, int quantity, String stockName){
         this.order_id = order_id;
         this.time = time;
-        if(buy=="buy"){
+        if(buy.equals("buy")){
             buyFlag = true;
         }else{
             sellFlag = true;
