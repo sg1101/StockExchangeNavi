@@ -60,7 +60,7 @@ public class Stock {
                         order.setQuantity(quantity-quantityMatched);
                         quantity = quantity-quantityMatched;
                         sellOrders.get(i).setQuantity(sellOrders.get(i).getQuantity() - quantityMatched);
-                        if(quantityMatched!=0)System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
+                        if(quantityMatched!=0)System.out.println(orderId+" " + String.format("%.2f", sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
                     }
                     
                 }
@@ -99,7 +99,9 @@ public class Stock {
                         quantity = quantity-quantityMatched;
                         order.setQuantity(quantity-quantityMatched);
                         buyOrders.get(i).setQuantity(buyOrders.get(i).getQuantity() - quantityMatched);
-                        if(quantityMatched!=0)System.out.println(buyOrders.get(i).getOrderId()+" " + String.valueOf(price)+" "+ String.valueOf(quantityMatched)+" "+ orderId);
+                        //System.out.println(price);
+                        if(quantityMatched!=0)System.out.println(buyOrders.get(i).getOrderId()+" " + String.format("%.2f", price)+" "+ String.valueOf(quantityMatched)+" "+ orderId);
+
                         //System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ buyOrders.get(i).getOrderId());
                     }
                     

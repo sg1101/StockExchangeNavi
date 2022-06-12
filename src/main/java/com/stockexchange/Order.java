@@ -6,7 +6,7 @@ public class Order {
     boolean buyFlag = false;
     boolean sellFlag = false;
     double price;
-    Integer quantity;
+    int quantity;
     String stockName;
 
     Order(){
