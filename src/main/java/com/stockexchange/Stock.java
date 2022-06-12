@@ -21,6 +21,21 @@ public class Stock {
     //Order(String order_id, String time, String buy, int price, int quantity, String stockName)
     //Output format: <buy-order-id> <sell-price> <qty> <sell-order-id>
 
+
+    // INPUT:
+    // #1 09:45 BAC sell 240.12 100
+    // #2 09:46 BAC sell 237.45 90
+    // #3 09:47 BAC buy 238.10 110
+    // #4 09:48 BAC buy 237.80 10
+    // #5 09:49 BAC buy 237.80 40
+    // #6 09:50 BAC sell 236.00 50
+
+    // OUTPUT:
+    // #3 237.45 90 #2
+    // #3 236.00 20 #6
+    // #4 236.00 10 #6
+    // #5 236.00 20 #6
+
     void stockMatch(Order order){
         String orderId = order.getOrderId();
         String time = order.getTime();
@@ -42,9 +57,10 @@ public class Stock {
                     
                     if(quantity!=0 && price>sellOrders.get(i).getPrice() ){
                         int quantityMatched = Math.min(quantity, sellOrders.get(i).getQuantity());
+                        order.setQuantity(quantity-quantityMatched);
                         quantity = quantity-quantityMatched;
                         sellOrders.get(i).setQuantity(sellOrders.get(i).getQuantity() - quantityMatched);
-                        System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
+                        if(quantityMatched!=0)System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
                     }
                     
                 }
@@ -81,8 +97,9 @@ public class Stock {
                     if(quantity!=0 && price<buyOrders.get(i).getPrice() ){
                         int quantityMatched = Math.min(quantity, buyOrders.get(i).getQuantity());
                         quantity = quantity-quantityMatched;
+                        order.setQuantity(quantity-quantityMatched);
                         buyOrders.get(i).setQuantity(buyOrders.get(i).getQuantity() - quantityMatched);
-                        System.out.println(buyOrders.get(i).getOrderId()+" " + String.valueOf(price)+" "+ String.valueOf(quantityMatched)+" "+ orderId);
+                        if(quantityMatched!=0)System.out.println(buyOrders.get(i).getOrderId()+" " + String.valueOf(price)+" "+ String.valueOf(quantityMatched)+" "+ orderId);
                         //System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ buyOrders.get(i).getOrderId());
                     }
                     
