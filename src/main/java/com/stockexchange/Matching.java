@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,23 +17,46 @@ public class Matching {
     static HashMap<String, Order> orders = new HashMap<String, Order>(); //orderid -> Order(object)
 
 
-    static void fileRead() throws IOException{
+    // static void fileRead() throws IOException{
 
-        File file = new File("/Users/shubham/Documents/Development/matching/test.txt");
+    private InputStream getFileFromResourceAsStream(String fileName) {
 
-        BufferedReader br
-            = new BufferedReader(new FileReader(file));
- 
-        String st;
-
-        inputOrders = new ArrayList<String> ();
-        
-        while ((st = br.readLine()) != null){
-            inputOrders.add(st);
-        }
-            
-        br.close();
+            // The class loader that loaded the class
+            ClassLoader classLoader = getClass().getClassLoader();
+            InputStream inputStream = classLoader.getResourceAsStream(fileName);
+    
+            // the stream holding the file content
+            if (inputStream == null) {
+                throw new IllegalArgumentException("file not found! " + fileName);
+            } else {
+                return inputStream;
+            }
+    
     }
+
+    
+
+    // static void fileRead() throws IOException{
+
+
+
+    //     File file = new File();
+
+        
+
+    //     BufferedReader br
+    //         = new BufferedReader(new FileReader(file));
+ 
+    //     String st;
+
+    //     inputOrders = new ArrayList<String> ();
+        
+    //     while ((st = br.readLine()) != null){
+    //         inputOrders.add(st);
+    //     }
+            
+    //     br.close();
+    // }
 
 
     // INPUT: inputOrders
@@ -46,7 +72,32 @@ public class Matching {
 
     public static void main(String[] args) throws IOException{
 
-        fileRead();
+        String fileName = "data/test.txt";
+
+        Matching match = new Matching();
+
+        // System.out.println("getResourceAsStream : " + fileName);
+        InputStream is = match.getFileFromResourceAsStream(fileName);
+        // printInputStream(is);
+
+        // System.out.println("\ngetResource : " + fileName);
+        // File file = match.getFileFromResource(fileName);
+        // printFile(file);
+
+        InputStreamReader streamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
+        BufferedReader br = new BufferedReader(streamReader);
+        String st;
+
+        inputOrders = new ArrayList<String> ();
+        
+        while ((st = br.readLine()) != null){
+            inputOrders.add(st);
+        }
+            
+        br.close();
+
+
+        //fileRead();
         int countInputStrings = inputOrders.size();
 
         for(int i =0; i<countInputStrings; i++){
