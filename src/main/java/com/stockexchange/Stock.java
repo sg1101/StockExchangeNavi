@@ -32,11 +32,12 @@ public class Stock {
             if(sellOrders.isEmpty()){
                 buyOrders.add(order);
             }else{
+                buyOrders.add(order);
                 int countsellorders = sellOrders.size();
 
                 Collections.sort(buyOrders, new NameComparator());
                 Collections.sort(sellOrders, new NameComparator());
-
+                //System.out.println(countsellorders);
                 for(int i =0; i<countsellorders; i++){
                     
                     if(quantity!=0 && price>sellOrders.get(i).getPrice() ){
@@ -46,6 +47,10 @@ public class Stock {
                         System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
                     }
                     
+                }
+
+                if(quantity!=0){
+                    buyOrders.add(order);
                 }
                 
                 int index = 0;
@@ -63,21 +68,28 @@ public class Stock {
             if(buyOrders.isEmpty()){
                 sellOrders.add(order);
             }else{
+                sellOrders.add(order);
                 int countbuyorders = buyOrders.size();
+                
 
                 Collections.sort(buyOrders, new NameComparator());
                 Collections.sort(sellOrders, new NameComparator());
+                //System.out.println("buy" + countbuyorders);
 
                 for(int i =0; i<countbuyorders; i++){
                     
-                    if(quantity!=0 && price>buyOrders.get(i).getPrice() ){
+                    if(quantity!=0 && price<buyOrders.get(i).getPrice() ){
                         int quantityMatched = Math.min(quantity, buyOrders.get(i).getQuantity());
                         quantity = quantity-quantityMatched;
                         buyOrders.get(i).setQuantity(buyOrders.get(i).getQuantity() - quantityMatched);
-                        System.out.println(orderId+" " + String.valueOf(buyOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ buyOrders.get(i).getOrderId());
+                        System.out.println(buyOrders.get(i).getOrderId()+" " + String.valueOf(price)+" "+ String.valueOf(quantityMatched)+" "+ orderId);
+                        //System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ buyOrders.get(i).getOrderId());
                     }
                     
                 }
+                // if(quantity!=0){
+                //     sellOrders.add(order);
+                // }
                 
                 int index = 0;
                 while(index<buyOrders.size()){
