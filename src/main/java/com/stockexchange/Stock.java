@@ -9,6 +9,8 @@ public class Stock {
     ArrayList<Order> sellOrders;
     Stock(String name){
         this.stockName = name;
+        this.buyOrders = new ArrayList<Order>();
+        this.sellOrders = new ArrayList<Order>();
     }
 
     String getName(){
