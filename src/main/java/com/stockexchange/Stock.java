@@ -23,7 +23,7 @@ public class Stock {
         String orderId = order.getOrderId();
         String time = order.getTime();
         boolean buy = order.isBuy();
-        int price = order.getPrice();
+        double price = order.getPrice();
         int quantity = order.getQuantity();
         String stockName = order.getStockName();
         if(buy){

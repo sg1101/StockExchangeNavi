@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Matching {
-    static ArrayList<String> inputOrders;
+    static ArrayList<String> inputOrders = new ArrayList<String>();
 
-    static HashMap<String, Stock> stocks; //stockname -> Stock(object)
-    static HashMap<String, Order> orders; //orderid -> Order(object)
+    static HashMap<String, Stock> stocks = new HashMap<String, Stock>(); //stockname -> Stock(object)
+    static HashMap<String, Order> orders = new HashMap<String, Order>(); //orderid -> Order(object)
 
 
     static void fileRead() throws IOException{
@@ -69,7 +69,7 @@ public class Matching {
 
             Stock stock = stocks.get(stockname);
 
-            Order order = new Order(orderId, time, buy, Integer.parseInt(price), Integer.parseInt(quantity), stockname);
+            Order order = new Order(orderId, time, buy, Double.parseDouble(price), Integer.parseInt(quantity), stockname);
 
             orders.put(orderId, order);
 

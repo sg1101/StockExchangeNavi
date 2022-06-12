@@ -5,7 +5,7 @@ public class Order {
     String time;
     boolean buyFlag = false;
     boolean sellFlag = false;
-    Integer price;
+    double price;
     Integer quantity;
     String stockName;
 
@@ -17,7 +17,7 @@ public class Order {
         this.stockName = "";
     }
 
-    Order(String order_id, String time, String buy, int price, int quantity, String stockName){
+    Order(String order_id, String time, String buy, double price, int quantity, String stockName){
         this.order_id = order_id;
         this.time = time;
         if(buy=="buy"){
@@ -43,7 +43,7 @@ public class Order {
         return false;
     }
 
-    int getPrice(){
+    double getPrice(){
         return price;
     }
 

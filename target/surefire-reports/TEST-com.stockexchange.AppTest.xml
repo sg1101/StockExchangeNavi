@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.stockexchange.AppTest" time="0.12" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.stockexchange.AppTest" time="0.13" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/17.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/shubham/Documents/Development/matching/target/surefire/surefirebooter14508261966732417446.jar /Users/shubham/Documents/Development/matching/target/surefire 2022-06-12T19-24-14_591-jvmRun1 surefire2381877277746506482tmp surefire_02882193234426900019tmp"/>
+    <property name="sun.java.command" value="/Users/shubham/Documents/Development/matching/target/surefire/surefirebooter11079340297133473978.jar /Users/shubham/Documents/Development/matching/target/surefire 2022-06-12T19-33-26_467-jvmRun1 surefire6579383524161625160tmp surefire_0383879595533822544tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/shubham/Documents/Development/matching/target/test-classes:/Users/shubham/Documents/Development/matching/target/classes:/Users/shubham/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/shubham/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/Users/shubham/Documents/Development/matching/target/surefire/surefirebooter14508261966732417446.jar"/>
+    <property name="surefire.real.class.path" value="/Users/shubham/Documents/Development/matching/target/surefire/surefirebooter11079340297133473978.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.2+0"/>
@@ -55,5 +55,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.stockexchange.AppTest" time="0.003"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.stockexchange.AppTest" time="0.004"/>
 </testsuite>
