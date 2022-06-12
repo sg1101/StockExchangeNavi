@@ -44,7 +44,16 @@ public class Stock {
                         System.out.println(orderId+" " + String.valueOf(sellOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ sellOrders.get(i).getOrderId());
                     }
                     
-                } 
+                }
+                
+                int index = 0;
+                while(index<sellOrders.size()){
+                    if(sellOrders.get(index).getQuantity()==0){
+                        sellOrders.remove(index);
+                    }else{
+                        break;
+                    }
+                }
             }
         }else{
 
@@ -66,7 +75,17 @@ public class Stock {
                         System.out.println(orderId+" " + String.valueOf(buyOrders.get(i).getPrice())+" "+ String.valueOf(quantityMatched)+" "+ buyOrders.get(i).getOrderId());
                     }
                     
-                } 
+                }
+                
+                int index = 0;
+                while(index<buyOrders.size()){
+                    if(buyOrders.get(index).getQuantity()==0){
+                        buyOrders.remove(index);
+                    }else{
+                        break;
+                    }
+                }
+
             }
 
 
